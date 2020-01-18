@@ -8,7 +8,7 @@
 Summary: Mail processing program
 Name: procmail
 Version: 3.22
-Release: 34%{?dist}
+Release: 34%{?dist}.1
 License: GPLv2+ or Artistic
 Group: Applications/Internet
 # Source: ftp://ftp.procmail.org/pub/procmail/procmail-%{version}.tar.gz
@@ -24,6 +24,7 @@ Patch2: procmail_3.22-8.debian.patch
 Patch4: procmail-3.22-truncate.patch
 Patch5: procmail-3.22-ipv6.patch
 Patch6: procmail-3.22-getline.patch
+Patch7: procmail-3.22-CVE-2014-3618.patch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 %description
@@ -42,6 +43,7 @@ forward certain incoming mail automatically to someone.
 %patch4 -p1 -b .truncate
 %patch5 -p1 -b .ipv6
 %patch6 -p1 -b .getline
+%patch7 -p1 -b .CVE-2014-3618
 
 find examples -type f | xargs chmod 644
 
@@ -77,6 +79,10 @@ rm -rf ${RPM_BUILD_ROOT}
 %{_mandir}/man[15]/*
 
 %changelog
+* Thu Sep  4 2014 Jaroslav Škarvada <jskarvad@redhat.com> - 3.22-34.1
+- Fixed buffer overflow in formail
+  Resolves: CVE-2014-3618
+
 * Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 3.22-34
 - Mass rebuild 2014-01-24
 
