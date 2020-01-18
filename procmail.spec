@@ -8,7 +8,7 @@
 Summary: Mail processing program
 Name: procmail
 Version: 3.22
-Release: 34%{?dist}.1
+Release: 35%{?dist}
 License: GPLv2+ or Artistic
 Group: Applications/Internet
 # Source: ftp://ftp.procmail.org/pub/procmail/procmail-%{version}.tar.gz
@@ -79,7 +79,7 @@ rm -rf ${RPM_BUILD_ROOT}
 %{_mandir}/man[15]/*
 
 %changelog
-* Thu Sep  4 2014 Jaroslav Škarvada <jskarvad@redhat.com> - 3.22-34.1
+* Thu Sep  4 2014 Jaroslav Škarvada <jskarvad@redhat.com> - 3.22-35
 - Fixed buffer overflow in formail
   Resolves: CVE-2014-3618
 
